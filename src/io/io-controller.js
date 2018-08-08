@@ -94,6 +94,11 @@ class IOController {
         this._selectSeekHandler();
         this._selectLoader();
         this._createLoader();
+
+        if (config.onSpeedSamplerCallback) {
+            config.onSpeedSamplerCallback(this._speedSampler);
+        }
+
     }
 
     destroy() {
