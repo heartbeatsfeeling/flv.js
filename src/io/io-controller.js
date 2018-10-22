@@ -440,6 +440,9 @@ class IOController {
 
     _dispatchChunks(chunks, byteStart) {
         this._currentRange.to = byteStart + chunks.byteLength - 1;
+        if (this._config.messageCallback) {
+            this._config.messageCallback(chunks, byteStart)
+        }
         return this._onDataArrival(chunks, byteStart);
     }
 
